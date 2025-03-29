@@ -1,0 +1,713 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #f37a17;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body.dark {
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+
+.sidebar.close {
+    width: 88px;
+}
+
+/* ===== Reusable code - Here ===== */
+.sidebar li {
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar header .image,
+.sidebar .icon {
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .icon {
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.sidebar .text,
+.sidebar .icon {
+    color: var(--text-color);
+    transition: var(--tran-03);
+}
+
+.sidebar .text {
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text {
+    opacity: 0;
+}
+
+/* =========================== */
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar header .image-text {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar header .logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+header .image-text .name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header .image-text .profession {
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img {
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .toggle {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+body.dark .sidebar header .toggle {
+    color: var(--text-color);
+}
+
+.sidebar.close .toggle {
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar .menu {
+    margin-top: 40px;
+}
+
+.sidebar li.search-box {
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.sidebar li.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color-light);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--tran-05);
+}
+
+.sidebar li a {
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover {
+    background-color: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar {
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+
+.menu-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar .menu-bar .mode {
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    position: relative;
+    transition: var(--tran-05);
+}
+
+.menu-bar .mode .sun-moon {
+    height: 50px;
+    width: 60px;
+}
+
+.mode .sun-moon i {
+    position: absolute;
+}
+
+.mode .sun-moon i.sun {
+    opacity: 0;
+}
+
+body.dark .mode .sun-moon i.sun {
+    opacity: 1;
+}
+
+body.dark .mode .sun-moon i.moon {
+    opacity: 0;
+}
+
+.menu-bar .bottom-content .toggle-switch {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.toggle-switch .switch {
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+    transition: var(--tran-05);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+body.dark .switch::before {
+    left: 20px;
+}
+
+.home {
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.home .text {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+.sidebar.close~.home {
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
+body.dark .home .text {
+    color: var(--text-color);
+}
+img p{
+    display: inline-block;
+}
+#logo{
+    padding-left:102px;
+}
+.header-site {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 100%;
+}
+
+.content-site {
+    /* From https://css.glass */
+    padding-bottom: 50px;
+}
+
+.img-site {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.footer-site {
+    background-color: #333333;
+    color: #ffffff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#product-rate {
+    cursor: pointer;
+}
+
+.box3 {
+    width: 700px;
+    margin: 50px auto;
+    border-radius: 15px;
+    background: #29abe2;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    font-family: arial;
+    position: relative;
+}
+/* speech bubble 13 */
+
+.sb13:before {
+    text-align: right;
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid #29abe2;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #29abe2;
+    border-bottom: 15px solid transparent;
+    right: -16px;
+    top: 0px;
+}
+/* speech bubble 14 */
+
+.sb14:before {
+    text-align: left;
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid #29abe2;
+    border-top: 15px solid #29abe2;
+    border-bottom: 15px solid transparent;
+    left: -16px;
+    top: 0px;
+}
+
+.faq-content {
+    margin: 4px, 4px;
+    padding: 4px;
+    background-color: #ffffff;
+    width: 1100px;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    opacity: 90%;
+    border-radius: 15px;
+}
+
+.market {
+    width: 700px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.security {
+    width: 700px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.benefits {
+    width: 700px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.shippment {
+    width: 700px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.about-text {
+    vertical-align: top;
+    padding-top: 18px;
+    padding-left: 20px;
+}
+
+.separator {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.row-sm-padding {
+    padding-left: 150px;
+}
+
+.about-site {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.9px);
+    -webkit-backdrop-filter: blur(1.9px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.catalog {
+    height: 490px;
+    overflow-y: scroll;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.9px);
+    -webkit-backdrop-filter: blur(1.9px);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.catalog-caption {
+    vertical-align: top;
+    height: 90px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    opacity: 90%;
+}
+/*.catalog-thumb {
+font-weight: bold;
+opacity: 0.9;
+text-align: center;
+color: #333333;
+background-image: url(../img/titles-caption.png);
+background-position: center;
+background-size: contain;
+background-repeat: no-repeat;
+}*/
+
+.catalog-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.catalog-title h1 {
+    font-weight: bold;
+    padding-left: 0.5%;
+    padding-right: 80%;
+    padding-top: 20px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    color: #333333;
+}
+
+.catalog-title img {
+    padding: 1.5%;
+    padding-right: 800px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: auto;
+    opacity: 0.5;
+}
+
+.table-div {
+    margin-top: 70px;
+}
+
+table tr {
+    border-bottom: solid transparent 25px;
+}
+
+.faq-header {
+    vertical-align: top;
+    height: 90px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    opacity: 90%;
+}
+
+.review-charts {
+    float: left;
+    overflow-y: scroll;
+    width: 630px;
+    max-height: 380px;
+    padding-top: 20px;
+    border: 3px solid #ffffff;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.support-caption {
+    padding-left: 50px;
+}
+
+.username-caption {
+    padding-right: 100px;
+    float: left;
+}
+
+.rate-caption {
+    padding-right: 100px;
+    float: left;
+}
+
+.date-caption {
+    float: inline-end;
+}
+
+.opened-tasks {
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+}
+
+.username {
+    float: left;
+    padding-left: 10px;
+}
+
+.rate {
+    float: left;
+    padding-left: 140px;
+}
+
+.date {
+    float: left;
+    padding-left: 50px;
+}
+
+.spinner-arrow {
+    float: left;
+    padding-left: 30px;
+}
+
+.support-conversations {
+    padding-left: 30px;
+    float: right;
+    margin: 4px, 4px;
+    padding: 4px;
+    background-color: #ffffff;
+    width: 460px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    opacity: 90%;
+}
+
+.chat-box {
+    width: 350px;
+    margin: 50px auto;
+    border-radius: 15px;
+    background: #29abe2;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    font-family: arial;
+    position: relative;
+}
+
+.sb16::before {
+    text-align: left;
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid #29abe2;
+    border-top: 15px solid #29abe2;
+    border-bottom: 15px solid transparent;
+    left: -16px;
+    top: 0px;
+}
+
+.sb15::before {
+    text-align: right;
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid #29abe2;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #29abe2;
+    border-bottom: 15px solid transparent;
+    right: -16px;
+    top: 0px;
+}
+
+.support-chat-caption {
+    padding-right: 324px;
+    float: right;
+    background-color: #ffffff;
+    opacity: 90%;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.task-padding {
+    float: left;
+    border-radius: 0px 0px 15px 15px;
+    padding: 10px;
+    padding-left: 20px;
+    background-color: white;
+    height: 90px;
+    width: 630px;
+    opacity: 90%;
+}
+
+.message {
+    padding-top: 10px;
+}
+
+#post-button {
+    padding-left: 10px;
+}
+
+.support-user-thumb {
+    float: left;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.support-chat-footer {
+    padding-top: 8px;
+    padding-left: 10px;
+    border-radius: 0px 0px 15px 15px;
+    margin-left: 656px;
+    background-color: #ffffff;
+    width: 461px;
+    height: 80px;
+}
+

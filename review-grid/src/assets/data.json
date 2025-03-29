@@ -1,0 +1,49 @@
+[
+  {
+    "review_id": 1,
+    "customer_id": "d0107d24-cae2-4bc0-a8b4-ab30b5f4b63d",
+    "rating": 4,
+    "upvoted_by": [
+      "ac0a7ec1-44ed-44b4-97ca-3f6c48cb9ad5",
+      "8f477b13-d55c-40b1-b44e-f8a49b7f306c"
+    ],
+    "downvoted_by": [],
+    "comment": "That's great! Excelent product",
+    "replied_customer": null,
+    "created_at": "2023-06-17T20:43:18.790Z",
+    "updated_at": "2023-06-17T20:43:18.790Z"
+  },
+  {
+    "review_id": 2,
+    "customer_id": "ac0a7ec1-44ed-44b4-97ca-3f6c48cb9ad5",
+    "rating": 5,
+    "upvoted_by": ["8f477b13-d55c-40b1-b44e-f8a49b7f306c"],
+    "downvoted_by": [],
+    "comment": "I very liked my new toll!",
+    "replied_customer": null,
+    "created_at": "2023-05-31T01:50:57.341Z",
+    "updated_at": "2023-05-31T01:50:57.341Z"
+  },
+  {
+    "review_id": 3,
+    "customer_id": "8f477b13-d55c-40b1-b44e-f8a49b7f306c",
+    "rating": 1,
+    "upvoted_by": [],
+    "downvoted_by": ["d0107d24-cae2-4bc0-a8b4-ab30b5f4b63d"],
+    "comment": "The shippment has to late!",
+    "replied_customer": null,
+    "created_at": "2023-06-17T20:44:11.380Z",
+    "updated_at": "2023-06-17T20:44:11.380Z"
+  },
+  {
+    "review_id": 4,
+    "customer_id": "ac0a7ec1-44ed-44b4-97ca-3f6c48cb9ad5",
+    "rating": null,
+    "upvoted_by": ["8f477b13-d55c-40b1-b44e-f8a49b7f306c"],
+    "downvoted_by": [],
+    "comment": "@careless_guy how long are you waiting?",
+    "replied_customer": "8f477b13-d55c-40b1-b44e-f8a49b7f306c",
+    "created_at": "2023-05-31T01:50:57.341Z",
+    "updated_at": "2023-05-31T01:50:57.341Z"
+  }
+]

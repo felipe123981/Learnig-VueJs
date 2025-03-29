@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue app</title>
+
+    <!-- Vue Js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <p>Digite algo para ser exibido:</p>
+        <input type="text" v-model="conteudo" placeholder="Digite algo">
+        <p v-if="conteudo == 'Felipe'">{{conteudo}} Pereira</p>
+        <p v-else>{{conteudo}}</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: '<U>Hello Vue JS</U>',
+                lista:[ 
+                {
+                    id: 1, 
+                    nome: 'Felipe',
+                    idioma: 'Português'
+                },
+                {
+                    id: 2,
+                    nome: 'Bob',
+                    idioma: 'Jamaicano'
+                },
+                {
+                    id: 3,
+                    nome: 'Dickson',
+                    idioma: 'English'
+                }
+                ],
+                verifica: false,
+                numero: 3.99999999,
+                conteudo: '' 
+            }
+        });
+    </script>
+
+</body>
+
+</html>

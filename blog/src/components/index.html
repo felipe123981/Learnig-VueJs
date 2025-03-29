@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-xs-8">
+                <input type="text" class="form-control" placeholder="
+        Add a task" v-model="inputTask">
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-success" v-on:click="addTask">
+                    Adicionar
+                </button>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-10">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-bind:key="task.id" v-for="task in tasks">
+                            <td class="col-xs-11">
+                                {{task.name}}
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-danger" v-on:click="re\
+        moveTask(task.id)">
+                                    x
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tasks: [
+                    { id: 1, name: "Learn Vue" },
+                    { id: 2, name: "Learn Npm" },
+                    { id: 3, name: "Learn Sass" }
+                ],
+                inputTask: "",
+            },
+            methods: {
+                addTask: function() {
+                    if (this.inputTask.trim() != "") {
+                        this.tasks.push(
+                            {
+                                name: this.inputTask,
+                                id: this.tasks.length + 1
+                            }
+                        )
+                        this.inputTask = "";
+                    }
+                },
+                removeTask: function(id) {
+                    for (var i = this.tasks.length; i--;) {
+                        if (this.tasks[i].id === id) {
+                            this.tasks.splice(i, 1);
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue app</title>
+
+    <!-- Vue Js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+        <header-component 
+        v-for="todo in todos"
+         v-bind:todo="todo"
+         v-bind:key="todo.id"/>
+        </ul>
+    </div>
+    <script>
+        Vue.component('header-component', {
+            props: ['todo'],
+            template: '<li>{{todo.text}}</li>'
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'This is my message!',
+                todos: [
+                    {id: 1, text: 'Arrumar o quarto'},
+                    {id: 2, text: 'Fazer flexões'},
+                    {id: 3, text: 'Lavar a louça'}
+                ]
+            },
+        });
+    </script>
+</body>
+
+</html>

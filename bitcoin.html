@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue app</title>
+    <!-- Semantic UI style-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Axios CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Vue Js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+
+        <ul v-for="info in infos">
+            <li>
+                <h3><strong v-html="info.symbol"></strong> {{info.code}}</h3>
+                <ul>
+                    <li>Descrição: <strong>{{info.description}}</strong></li>
+                    <li>Valor: <strong>{{info.rate}}</strong></li>
+                    <li>Flutuante: <strong>{{info.rate_float}}</strong></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Preço do Bitcoin:',
+                infos: []   
+            },
+            mounted() {
+                axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+                //.then( response => ( console.log( response.data.bpi ) ) )
+                .then( response => (  this.infos = response.data.bpi )  )
+            }
+        });
+    </script>
+</body>
+
+</html>
